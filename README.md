@@ -1,95 +1,97 @@
 <div align="center">
 
-# 🍌 蕉幻 (Banana Slides)
+<img width="256" src="https://github.com/user-attachments/assets/6f9e4cf9-912d-4faa-9d37-54fb676f547e">
+<br><br><br>
 
-*欢迎star🌟 & fork🍴*
+<h1> 🍌 蕉幻 (Banana Slides) </h1>
 
-一个基于nano banana pro的智能PPT生成工具，支持一句话生成完整PPT演示文稿，自然语言直接修改ppt页面，实现“Vibe PPT”
+*Vibe your PPT like vibing code.*
 
 <p>
-  <a href="https://github.com/your-username/banana-slides/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License">
-  </a>
-  <img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python&logoColor=white" alt="Python">
-  <img src="https://img.shields.io/badge/React-18-blue?logo=react&logoColor=61DAFB" alt="React">
-  <img src="https://img.shields.io/badge/Flask-3.0-lightgrey?logo=flask&logoColor=black" alt="Flask">
-  <img src="https://img.shields.io/badge/TypeScript--blue?logo=typescript&logoColor=white" alt="TypeScript">
-  <a href="https://gemini.google.com/">
-    <img src="https://img.shields.io/badge/Powered_by-Gemini_AI-4A89F3?logo=google-gemini" alt="Powered by Gemini">
-  </a>
-  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" alt="PRs Welcome">
-  
 
+[![GitHub Stars](https://img.shields.io/github/stars/Anionex/banana-slides?style=square)](https://github.com/Anionex/banana-slides/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/Anionex/banana-slides?style=square)](https://github.com/Anionex/banana-slides/network)
+[![GitHub Watchers](https://img.shields.io/github/watchers/Anionex/banana-slides?style=square)](https://github.com/Anionex/banana-slides/watchers)
+
+[![Version](https://img.shields.io/badge/version-v0.1.0-4CAF50.svg)](https://github.com/Anionex/banana-slides)
+![Docker](https://img.shields.io/badge/Docker-Build-2496ED?logo=docker&logoColor=white)
+[![License](https://img.shields.io/github/license/Anionex/banana-slides?color=FFD54F)](https://github.com/Anionex/banana-slides/blob/main/LICENSE)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-42b883.svg)
 
 </p>
-<br>
-<img width="256" src="https://github.com/user-attachments/assets/6f9e4cf9-912d-4faa-9d37-54fb676f547e">
-<br>
+  
+一个基于nano banana pro的原生AI PPT生成应用，支持想法/大纲/页面描述生成完整PPT演示文稿、文本图片链接自动提取、上传任意素材、口头提出修改，迈向真正的“Vibe PPT”
+
+*如果该项目对你有用, 欢迎star🌟 & fork🍴*
+</p>
+
 </div>
 
 
+## ✨ 项目缘起
+本人不擅长PPT制作，每次做PPT都需要花费大量时间在ppt样式调整和排版上。使用过传统的AI PPT app，虽然能快速产出ppt，但是还存在以下问题：
+- 1️⃣只能选择预设模版，无法灵活调整风格
+- 2️⃣自由度低，多轮改动难以进行 
+- 3️⃣成品观感相似，同质化严重
+
+有以上这些缺陷，难以满足我们“快”和“美”的两大PPT制作需求。即使自称Vibe PPT，但是在我的眼中还远不够“Vibe”。
+但是nano banana🍌模型的出现让一切有了转机。我尝试使用🍌pro进行ppt页面生成，发现生成的结果，无论是质量，美感还是一致性，都做的非常好，且几乎能精确渲染所有prompt要求的文字+遵循参考图的风格： 好像真的能生成实用的结果了。那为什么不基于它的这一能力，做一个文生图的"Vibe PPT"应用呢？
 
 
-<img width="2086" height="1866" alt="image" src="https://github.com/user-attachments/assets/45283476-afb7-4aff-8154-15a0c0bc9174" />
+## 🎯 功能介绍
 
-## ✨ 项目简介
+### 亮点
 
-蕉幻（Banana Slides）是一个 AI 原生的 PPT 生成应用，它利用大语言模型和文生图模型来自动化 PPT 制作流程。用户只需要提供一个简单的想法或大纲，系统就能自动生成包含精美设计的完整 PPT
-
-### 核心亮点
-
-- 🚀 **一句话生成PPT**：从一个简单的想法快速生成完整的演示文稿
-- 🎨 **风格模板支持**：支持上传参考图片，生成的PPT将保持统一的设计风格
-- ⚡ **并行化处理**：多线程并行生成PPT页面，大幅提升生成速度
-- 🔄 **灵活的生成路径**：支持从构想、大纲或详细描述三种方式生成PPT
-- 📝 **智能内容生成**：基于LLM自动生成大纲和页面内容描述
-- 🖼️ **高质量图片生成**：利用Gemini AI生成4K分辨率、16:9比例的专业设计
-- 📊 **完整的PPT导出**：自动组合生成的图片页面并导出为标准PPTX文件
-- 🎯 **拖拽式编辑**：直观的大纲和描述编辑界面，支持拖拽排序
-- ✏️ **灵活修改**：支持对单页PPT进行自然语言编辑和重新生成
-
-## 🎯 主要功能
+- 🚀 **一句话生成 PPT**：从一个简单的想法快速得到大纲、页面描述和最终的 PPT 文稿
+- 🔄 **三种生成路径**：支持从「想法 / 大纲 / 页面描述」三种方式起步，适配不同创作习惯
+- 🔍 **文本与链接自动提取**：支持从一段文本中自动抽取要点、图片链接等信息
+- 🧾 **上传任意素材**：可上传参考图片、示例 PPT 等作为风格和内容参考
+- 🧙‍♀️ **AI 辅助编排**：由 LLM 生成结构清晰的大纲和逐页内容描述
+- 🖼️ **高质量页面生成**：基于 nano banana pro🍌 生成高清、风格统一的页面设计
+- 🗣️ **自然语言修改**：支持对单页或整套 PPT 进行「口头」式自然语言修改与重生成
+- 📊 **一键导出**：自动组合为 PPTX / PDF，16:9 比例，开箱即用
 
 ### 1. 多种创建方式
-- **从构想生成**：输入一句话描述，AI自动生成完整大纲和内容
-- **从大纲生成**：粘贴已有大纲，AI辅助扩展为详细描述
-- **从描述生成**：直接提供每页描述，快速生成图片
+- **从构想生成**：输入一句话 / 一段想法，自动生成完整大纲和页面内容
+- **从大纲生成**：粘贴已有大纲，AI 帮你扩展为逐页详细描述
+- **从描述生成**：直接提供每页描述，快速生成成品页面图片
 
-### 2. 智能大纲生成
-- 根据用户输入的主题自动生成PPT大纲
-- 支持简单格式和分章节格式两种组织方式
-- 可视化卡片编辑，支持拖拽排序
-- 实时编辑和调整内容
+### 2. 智能大纲与页面描述生成
+- 根据用户输入主题自动生成 PPT 大纲与整套页面结构
+- 以卡片形式呈现，支持删除、拖拽、调整顺序
+- 既可以一次性批量生成，也可以单个编辑逐步补充和细化
+- 内置并行处理能力，提升多页生成速度
 
-### 3. 页面描述生成
-- 为每一页PPT生成详细的文字描述
-- 包含标题、要点、排版建议等完整信息
-- 并行化处理，快速生成多页内容
-- 支持单页和批量生成
+### 4. 文本与素材理解
+- 支持对输入文本进行关键点抽取、结构化整理
+- 自动识别并提取其中的图片、链接等资源
+- 支持上传参考图片、截图、旧 PPT 作为风格与内容线索
 
-### 4. 图片生成与设计
-- 基于页面描述自动生成图片提示词
-- 使用Gemini AI的图像生成能力创建精美页面
-- 支持参考图片以保持风格一致性
-- 并行生成所有页面，提高效率
-- 支持单页自然语言编辑和重新生成
-
-### 5. 模板管理
-- 上传自定义风格模板
-- 模板自动应用到所有页面
-- 保持PPT风格一致性
-
-### 6. 多格式导出
-- **PPTX导出**：标准PowerPoint格式，可进一步编辑
-- **PDF导出**：便于分享和打印
-- 16:9比例，高质量输出
+### 5. 多格式导出
+- **PPTX 导出**：标准 PowerPoint 格式，可继续二次编辑
+- **PDF 导出**：适合快速分享和展示
+- 默认 16:9 比例，保证在主流显示设备上的观感
 
 
 ## 📦 使用方法
 
 ### 使用 Docker Compose🐳（推荐）
-
 这是最简单的部署方式，可以一键启动前后端服务。
+
+<details>
+  <summary>📒Windows用户说明</summary>
+
+如果你使用 Windows, 请先安装 Windows Docker Desktop，检查系统托盘中的 Docker 图标，确保 Docker 正在运行，然后使用相同的步骤操作。
+
+> **提示**：如果遇到问题，确保在 Docker Desktop 设置中启用了 WSL 2 后端（推荐），并确保端口 3000 和 5000 未被占用。
+
+</details>
+
+0. **克隆代码仓库**
+```bash
+git clone https://github.com/Anionex/banana-slides
+cd banana-slides
+```
 
 1. **配置环境变量**
 
@@ -102,8 +104,7 @@ cp env.example .env
 ```env
 GOOGLE_API_KEY=your-google-api-key-here
 GOOGLE_API_BASE=https://generativelanguage.googleapis.com
-SECRET_KEY=your-secret-key-change-this-in-production
-CORS_ORIGINS=http://localhost:80,http://localhost:3000
+...
 ```
 
 2. **启动服务**
@@ -116,7 +117,7 @@ docker-compose up -d
 
 - 前端：http://localhost:3000
 - 后端 API：http://localhost:5000
-- 健康检查：http://localhost:5000/health
+
 
 4. **查看日志**
 
@@ -137,40 +138,6 @@ docker-compose logs -f frontend
 docker-compose down
 ```
 
-<details>
-  <summary>📒Windows用户</summary>
-
-
-如果你使用 Windows, 请先安装 Windows Docker Desktop，然后按以下步骤操作：
-
-1. **确保 Docker Desktop 已启动**
-   - 检查系统托盘中的 Docker 图标，确保 Docker 正在运行
-
-2. **创建环境变量文件**
-   
-   ```cmd
-   cp env.example .env
-   ```
-
-3. **编辑 `.env` 文件**，填入你的 `GOOGLE_API_KEY` 等配置
-
-4. **启动服务**
-   ```powershell
-   docker-compose up -d
-   ```
-   命令与 Linux/Mac 相同，Docker Compose 会自动处理 Windows 路径。
-
-5. **访问应用**
-   - 前端：http://localhost:3000
-   - 后端：http://localhost:5000
-
-> **提示**：如果遇到问题，确保在 Docker Desktop 设置中启用了 WSL 2 后端（推荐），并确保端口 3000 和 5000 未被占用。
-
-</details>
-
-
-4. **备份策略**：定期备份 `backend/instance` 和 `uploads` 目录
-
 ### 从源码部署
 
 #### 环境要求
@@ -180,6 +147,12 @@ docker-compose down
 - 有效的 Google Gemini API 密钥
 
 #### 后端安装
+
+0. **克隆代码仓库**
+```bash
+git clone https://github.com/Anionex/banana-slides
+cd banana-slides
+```
 
 1. **安装 uv（如果尚未安装）**
 ```bash
@@ -340,15 +313,15 @@ banana-slides/
 
 ## 🤝 贡献指南
 
-欢迎提交Issue和Pull Request！
+欢迎通过
+[Issue](https://github.com/Anionex/banana-slides/issues)
+和
+[Pull Request](https://github.com/Anionex/banana-slides/pulls)
+为本项目贡献力量！
 
 ## 📄 许可证
 
 MIT
-
-## 📞 联系方式
-
-如有问题或建议，欢迎通过Issue反馈。
 
 
 
