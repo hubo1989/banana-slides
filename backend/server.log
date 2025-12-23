@@ -1,126 +1,423 @@
-Traceback (most recent call last):
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
-    self._dbapi_connection = engine.raw_connection()
-                             ~~~~~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3301, in raw_connection
-    return self.pool.connect()
-           ~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 447, in connect
-    return _ConnectionFairy._checkout(self)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 711, in checkout
-    rec = pool._do_get()
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
-    with util.safe_reraise():
-         ~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
-    return self._create_connection()
-           ~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in _create_connection
-    return _ConnectionRecord(self)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 673, in __init__
-    self.__connect()
-    ~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 899, in __connect
-    with util.safe_reraise():
-         ~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 895, in __connect
-    self.dbapi_connection = connection = pool._invoke_creator(self)
-                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/create.py", line 661, in connect
-    return dialect.connect(*cargs, **cparams)
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 629, in connect
-    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-sqlite3.OperationalError: unable to open database file
+2025-12-23 09:58:25,979 [INFO] root - Loaded AI_PROVIDER_FORMAT from settings: openai
+2025-12-23 09:58:25,979 [INFO] root - Loaded API_BASE from settings: http://localhost:8045/v1
+2025-12-23 09:58:25,979 [INFO] root - Loaded API key from settings
+2025-12-23 09:58:25,979 [INFO] root - Loaded image settings: 2K, 16:9
+2025-12-23 09:58:25,979 [INFO] root - Loaded worker settings: desc=5, img=8
+2025-12-23 09:58:25,982 [INFO] root - 
+╔══════════════════════════════════════╗
+║   🍌 Banana Slides API Server 🍌   ║
+╚══════════════════════════════════════╝
+Server starting on: http://localhost:5001
+Output Language: zh
+Environment: development
+Debug mode: True
+API Base URL: http://localhost:5001/api
+Database: sqlite:////Users/hubo/mycode/banana-slides/backend/instance/database.db
+Uploads: /Users/hubo/mycode/banana-slides/uploads
+ * Serving Flask app 'app'
+ * Debug mode: on
+2025-12-23 09:58:26,086 [INFO] werkzeug - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://10.181.50.54:5001
+2025-12-23 09:58:26,086 [INFO] werkzeug - [33mPress CTRL+C to quit[0m
+2025-12-23 09:58:26,091 [INFO] werkzeug -  * Restarting with stat
+2025-12-23 09:58:35,474 [INFO] root - Loaded AI_PROVIDER_FORMAT from settings: openai
+2025-12-23 09:58:35,474 [INFO] root - Loaded API_BASE from settings: http://localhost:8045/v1
+2025-12-23 09:58:35,474 [INFO] root - Loaded API key from settings
+2025-12-23 09:58:35,474 [INFO] root - Loaded image settings: 2K, 16:9
+2025-12-23 09:58:35,474 [INFO] root - Loaded worker settings: desc=5, img=8
+2025-12-23 09:58:35,476 [INFO] root - 
+╔══════════════════════════════════════╗
+║   🍌 Banana Slides API Server 🍌   ║
+╚══════════════════════════════════════╝
+Server starting on: http://localhost:5001
+Output Language: zh
+Environment: development
+Debug mode: True
+API Base URL: http://localhost:5001/api
+Database: sqlite:////Users/hubo/mycode/banana-slides/backend/instance/database.db
+Uploads: /Users/hubo/mycode/banana-slides/uploads
+2025-12-23 09:58:35,536 [WARNING] werkzeug -  * Debugger is active!
+2025-12-23 09:58:35,596 [INFO] werkzeug -  * Debugger PIN: 590-580-761
+2025-12-23 10:01:05,399 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "GET /api/output-language HTTP/1.1" 200 -
+2025-12-23 10:01:05,483 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_KEY from app.config: sk-2215043e6a394c7096f89f74ffd4dc0b
+2025-12-23 10:01:05,483 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_BASE from app.config: http://localhost:8045/v1
+2025-12-23 10:01:05,483 [INFO] services.ai_providers - Using OpenAI format for text generation, model: gemini-3-flash
+2025-12-23 10:01:05,773 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_KEY from app.config: sk-2215043e6a394c7096f89f74ffd4dc0b
+2025-12-23 10:01:05,773 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_BASE from app.config: http://localhost:8045/v1
+2025-12-23 10:01:05,773 [INFO] services.ai_providers - Using OpenAI format for image generation, model: gemini-3-pro-image
+2025-12-23 10:01:05,773 [WARNING] services.ai_providers - OpenAI format only supports 1K resolution, 4K is not available
+2025-12-23 10:01:05,814 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "[35m[1mPOST /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/generate/image HTTP/1.1[0m" 202 -
+2025-12-23 10:01:05,852 [INFO] services.task_manager - 🎨 Generating image for page e3090d2b-91ea-4168-97d6-3a99c64ab841...
+2025-12-23 10:01:05,855 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:05,932 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:05,941 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:05,957 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:05,974 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:05] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:06,000 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:06] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:06,005 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:06] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:06,218 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Calling OpenAI API - model: gemini-3-pro-image, api_base: http://localhost:8045/v1/
+2025-12-23 10:01:06,218 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Request prompt length: 793 chars, ref_images: 1
+2025-12-23 10:01:08,071 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:08] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:08,123 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:08] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:08,176 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:08] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:08,197 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:08] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:10,163 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:10] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:10,177 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:10] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:10,191 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:10] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:10,196 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:10] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:12,201 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:12] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:12,231 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:12] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:12,280 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:12] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:12,287 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:12] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:14,284 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:14,314 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:14,370 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:14,380 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:14] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:16,415 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:16] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:16,449 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:16] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:16,480 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:16] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:16,507 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:16] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:18,514 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:18,596 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:18,669 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:18] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:18,682 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:20,755 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:20] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:20,782 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:20] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:20,858 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:20] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:20,868 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:20] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:22,847 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:22,896 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:22,922 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:22] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:22,951 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:24,930 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:24] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:24,948 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:24] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:24,999 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:24] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:25,038 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:25] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:26,971 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:26] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:26,985 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:26] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:27,002 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:27] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:27,012 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:27] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:29,012 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:29] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:29,047 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:29] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:29,086 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:29] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:29,099 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:29] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:31,220 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:31] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:31,319 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:31] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:31,429 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:31] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:31,490 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:31] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:33,370 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:33] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:33,394 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:33] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:33,417 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:33] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:33,424 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:33] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:35,423 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:35] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:35,439 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:35] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:35,462 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:35] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:35,473 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:35] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:35,793 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] OpenAI API call completed, response type: ChatCompletion
+2025-12-23 10:01:35,797 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] ===== RAW RESPONSE START =====
+2025-12-23 10:01:35,797 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Response dump keys: ['id', 'choices', 'created', 'model', 'object', 'service_tier', 'system_fingerprint', 'usage', 'response', 'traceId']
+2025-12-23 10:01:35,806 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Raw response (truncated): {'id': None, 'choices': None, 'created': None, 'model': None, 'object': None, 'service_tier': None, 'system_fingerprint': None, 'usage': None, 'response': {'candidates': [{'content': {'parts': [{'text': '\n\n![Generated Image](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/6xinSlAAAQAAAAEAABidanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAGHdqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmZlODZiMTE0LTkxYzItMGViNy0wNTgwLTQ2NWUyMTgzYWVkZQAAABOEanVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABNUY2JvctKEWQauogEmGCGCWQPCMIIDvjCCA0SgAwIBAgITf8DFXrYCzoMPnf3QSrAMRZ64JjAKBggqhkjOPQQDAzBRMQswCQYDVQQGEwJVUzETMBEGA1UECgwKR29vZ2xlIExMQzEtMCsGA1UEAwwkR29vZ2xlIEMyUEEgTWVkaWEgU2VydmljZXMgMVAgSUNBIEczMB4XDTI1MTAzMDIyMzQ0N1oXDTI2MTAyNTIyMzQ0NlowazELMAkGA1UEBhMCVVMxEzARBgNVBAoTCkdvb2dsZSBMTEMxHDAaBgNVBAsTE0dvb2dsZSBTeXN0ZW0gNjAwMzIxKTAnBgNVBAMTIEdvb2dsZSBNZWRpYSBQcm9jZXNzaW5nIFNlcnZpY2VzMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEawavchc+90s/hPWHxK3FFJ3MlrNDMsBT9MKpPwTIQKlgKDEGTNCDKZ7pSr9psMwxnQyVriyKysDz6Pfmk73qFaOCAd8wggHbMA4GA1UdDwEB/wQEAwIGwDAfBgNVHSUEGDAWBggrBgEFBQcDBAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQd6OZCLAQToStyGD7pXnGFgwJTdTAfBgNVHSMEGDAWgBTae+G9tCyKheAQ1muax0rx+t/2NzBsBggrBgEFBQcBAQRgMF4wJgYIKwYBBQUHMAGGGmh0dHA6Ly9jMnBhLW9jc3AucGtpLmdvb2cvMDQGCCsGAQUFBzAChihodHRwOi8vcGtpLmdvb2cvYzJwYS9tZWRpYS0xcC1pY2EtZzMuY3J0MBcGA1UdIAQQMA4wDAYKKwYBBAGD6F4BATCBggYDVR0fBHsweTB3oHWgc4ZxaHR0cDovL3ByaXZhdGVjYS1jb250ZW50LTY4OGFhNjczLTAwMDAtMmE4Ni1hODdhLTA4OGJjODczNTcwYS5zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2I0ZmI2MDQ4MjVlY2M1YzNjZTZiL2NybC5jcmwwGQYJKwYBBAGD6F4DBAwGCisGAQQBg+heAwowMwYJKwYBBAGD6F4EBCYMJDAxOTljY2Q1LWRhZWQtNzlhNy04YjhhLWIwYmVkYzBhZjZmYTAKBggqhkjOPQQDAwNoADBlAjBmFtL3mPAMowbUEhwSn3lJjBLyCyhUYGl2NZQQHJOcHLpWNpHkl98WCG9IyI7KbE8CMQDxWA7ZdmKXNzz4Tf6p7wvW5zVzMnhwiezCm/86GxT8otwlWpSrb8J5T3FBV8wOLqtZAuAwggLcMIICY6ADAgECAhRB+qUhR3YhWNp/myz/jf0WCR7uPjAKBggqhkjOPQQDAzBDMQswCQYDVQQGEwJVUzETMBEGA1UECgwKR29vZ2xlIExMQzEfMB0GA1UEAwwWR29vZ2xlIEMyUEEgUm9vdCBDQSBHMzAeFw0yNTA1MDgyMj
+2025-12-23 10:01:35,806 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Choices count: 0
+2025-12-23 10:01:35,807 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] ===== RAW RESPONSE END =====
+2025-12-23 10:01:35,807 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Gemini response text: 
 
-The above exception was the direct cause of the following exception:
+![Generated Image](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/6xinSlAAAQAAAAEAABidanVtYgAA
+2025-12-23 10:01:35,811 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Found Markdown data URL in Gemini response, length: 856899
+2025-12-23 10:01:35,815 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Successfully extracted base64 image from Gemini Markdown: (1024, 1024), RGB
+2025-12-23 10:01:36,021 [INFO] services.task_manager - ✅ Task 1827f3af-3ded-459a-a25f-2e5672ee4204 COMPLETED - Page e3090d2b-91ea-4168-97d6-3a99c64ab841 image generated
+2025-12-23 10:01:37,464 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:37] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/1827f3af-3ded-459a-a25f-2e5672ee4204 HTTP/1.1" 200 -
+2025-12-23 10:01:37,492 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:37] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:01:37,570 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:37] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:01:37,589 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:37] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:01:37,592 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:01:37] "GET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841_v1.png?v=1766426496013 HTTP/1.1" 200 -
+2025-12-23 10:03:39,445 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:03:39] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841_v1.png?v=1766426496013 HTTP/1.1[0m" 304 -
+2025-12-23 10:03:39,455 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:03:39] "GET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/template/template.png?v=1766424012306 HTTP/1.1" 200 -
+2025-12-23 10:04:10,309 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:10] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:14,314 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/output-language HTTP/1.1" 200 -
+2025-12-23 10:04:14,351 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_KEY from app.config: sk-2215043e6a394c7096f89f74ffd4dc0b
+2025-12-23 10:04:14,352 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_BASE from app.config: http://localhost:8045/v1
+2025-12-23 10:04:14,352 [INFO] services.ai_providers - Using OpenAI format for text generation, model: gemini-3-flash
+2025-12-23 10:04:14,445 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_KEY from app.config: sk-2215043e6a394c7096f89f74ffd4dc0b
+2025-12-23 10:04:14,446 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_BASE from app.config: http://localhost:8045/v1
+2025-12-23 10:04:14,446 [INFO] services.ai_providers - Using OpenAI format for image generation, model: gemini-3-pro-image
+2025-12-23 10:04:14,446 [WARNING] services.ai_providers - OpenAI format only supports 1K resolution, 4K is not available
+2025-12-23 10:04:14,487 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "[35m[1mPOST /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/generate/image HTTP/1.1[0m" 202 -
+2025-12-23 10:04:14,493 [INFO] services.task_manager - 🎨 Generating image for page 42acdff2-98f4-45d8-ab34-5c745a9d4c60...
+2025-12-23 10:04:14,546 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:14,576 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:14,584 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:14,589 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:14,618 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:14,633 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:14,640 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:14] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:14,725 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Calling OpenAI API - model: gemini-3-pro-image, api_base: http://localhost:8045/v1/
+2025-12-23 10:04:14,726 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Request prompt length: 900 chars, ref_images: 1
+2025-12-23 10:04:16,668 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:16] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:16,687 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:16] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:16,741 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:16] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:16,746 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:16] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:18,727 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:18,758 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:18,806 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:18] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:18,818 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:20,807 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:20] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:20,824 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:20] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:20,847 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:20] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:20,851 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:20] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:22,856 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:22,876 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:22,922 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:22] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:22,934 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:24,910 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:24] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:24,934 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:24] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:24,954 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:24] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:24,959 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:24] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:26,984 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:26] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:26,998 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:26] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:27,055 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:27] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:27,056 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:27] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:29,025 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:29] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:29,035 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:29] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:29,058 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:29] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:29,066 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:29] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:31,083 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:31] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:31,109 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:31] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:31,156 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:31] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:31,157 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:31] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:33,141 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:33] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:33,159 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:33] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:33,178 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:33] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:33,194 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:33] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:35,185 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:35] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:35,200 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:35] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:35,216 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:35] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:35,218 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:35] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:37,218 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:37] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:37,229 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:37] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:37,245 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:37] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:37,248 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:37] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:39,250 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:39] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:39,264 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:39] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:39,275 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:39] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:39,276 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:39] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:41,291 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:41,306 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:41,346 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:41,352 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:41] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:43,394 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:43] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:43,422 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:43] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:43,458 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:43] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:43,467 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:43] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:45,442 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:45,474 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:45,485 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:45] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:45,488 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:46,654 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:46] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:46,668 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:46] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841_v1.png?v=1766426496013 HTTP/1.1[0m" 304 -
+2025-12-23 10:04:47,495 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:47] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:47,509 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:47] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:47,524 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:47] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:47,531 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:47] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:49,526 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:49] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:49,554 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:49] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:49,733 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:49] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:49,760 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:49] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:51,581 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:51,596 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:51,623 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:51] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:51,629 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:51,665 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:53,644 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:53] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:53,674 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:53] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:53,718 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:53] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:53,724 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:53] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:55,710 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:55] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:55,723 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:55] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:55,739 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:55] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:55,745 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:55] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:57,742 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:57] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:57,755 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:57] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:57,770 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:57] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:57,776 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:57] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:04:59,551 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] OpenAI API call completed, response type: ChatCompletion
+2025-12-23 10:04:59,556 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] ===== RAW RESPONSE START =====
+2025-12-23 10:04:59,556 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Response dump keys: ['id', 'choices', 'created', 'model', 'object', 'service_tier', 'system_fingerprint', 'usage', 'response', 'traceId']
+2025-12-23 10:04:59,562 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Raw response (truncated): {'id': None, 'choices': None, 'created': None, 'model': None, 'object': None, 'service_tier': None, 'system_fingerprint': None, 'usage': None, 'response': {'candidates': [{'content': {'parts': [{'text': '\n\n![Generated Image](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/6xinSlAAAQAAAAEAABidanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAGHdqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOjZhNmRhZTk0LWRjODktYzVjMi1hN2FlLTQxZjFmNDVlN2UzNwAAABOEanVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABNUY2JvctKEWQauogEmGCGCWQPCMIIDvjCCA0SgAwIBAgITf8DFXrYCzoMPnf3QSrAMRZ64JjAKBggqhkjOPQQDAzBRMQswCQYDVQQGEwJVUzETMBEGA1UECgwKR29vZ2xlIExMQzEtMCsGA1UEAwwkR29vZ2xlIEMyUEEgTWVkaWEgU2VydmljZXMgMVAgSUNBIEczMB4XDTI1MTAzMDIyMzQ0N1oXDTI2MTAyNTIyMzQ0NlowazELMAkGA1UEBhMCVVMxEzARBgNVBAoTCkdvb2dsZSBMTEMxHDAaBgNVBAsTE0dvb2dsZSBTeXN0ZW0gNjAwMzIxKTAnBgNVBAMTIEdvb2dsZSBNZWRpYSBQcm9jZXNzaW5nIFNlcnZpY2VzMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEawavchc+90s/hPWHxK3FFJ3MlrNDMsBT9MKpPwTIQKlgKDEGTNCDKZ7pSr9psMwxnQyVriyKysDz6Pfmk73qFaOCAd8wggHbMA4GA1UdDwEB/wQEAwIGwDAfBgNVHSUEGDAWBggrBgEFBQcDBAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQd6OZCLAQToStyGD7pXnGFgwJTdTAfBgNVHSMEGDAWgBTae+G9tCyKheAQ1muax0rx+t/2NzBsBggrBgEFBQcBAQRgMF4wJgYIKwYBBQUHMAGGGmh0dHA6Ly9jMnBhLW9jc3AucGtpLmdvb2cvMDQGCCsGAQUFBzAChihodHRwOi8vcGtpLmdvb2cvYzJwYS9tZWRpYS0xcC1pY2EtZzMuY3J0MBcGA1UdIAQQMA4wDAYKKwYBBAGD6F4BATCBggYDVR0fBHsweTB3oHWgc4ZxaHR0cDovL3ByaXZhdGVjYS1jb250ZW50LTY4OGFhNjczLTAwMDAtMmE4Ni1hODdhLTA4OGJjODczNTcwYS5zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2I0ZmI2MDQ4MjVlY2M1YzNjZTZiL2NybC5jcmwwGQYJKwYBBAGD6F4DBAwGCisGAQQBg+heAwowMwYJKwYBBAGD6F4EBCYMJDAxOTljY2Q1LWRhZWQtNzlhNy04YjhhLWIwYmVkYzBhZjZmYTAKBggqhkjOPQQDAwNoADBlAjBmFtL3mPAMowbUEhwSn3lJjBLyCyhUYGl2NZQQHJOcHLpWNpHkl98WCG9IyI7KbE8CMQDxWA7ZdmKXNzz4Tf6p7wvW5zVzMnhwiezCm/86GxT8otwlWpSrb8J5T3FBV8wOLqtZAuAwggLcMIICY6ADAgECAhRB+qUhR3YhWNp/myz/jf0WCR7uPjAKBggqhkjOPQQDAzBDMQswCQYDVQQGEwJVUzETMBEGA1UECgwKR29vZ2xlIExMQzEfMB0GA1UEAwwWR29vZ2xlIEMyUEEgUm9vdCBDQSBHMzAeFw0yNTA1MDgyMj
+2025-12-23 10:04:59,562 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Choices count: 0
+2025-12-23 10:04:59,562 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] ===== RAW RESPONSE END =====
+2025-12-23 10:04:59,562 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Gemini response text: 
 
-Traceback (most recent call last):
-  File "/mnt/d/Desktop/banana-slides/backend/app.py", line 80, in <module>
-    app = create_app()
-  File "/mnt/d/Desktop/banana-slides/backend/app.py", line 55, in create_app
-    db.create_all()
-    ~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/flask_sqlalchemy/extension.py", line 900, in create_all
-    self._call_for_binds(bind_key, "create_all")
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/flask_sqlalchemy/extension.py", line 881, in _call_for_binds
-    getattr(metadata, op_name)(bind=engine)
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/sql/schema.py", line 5928, in create_all
-    bind._run_ddl_visitor(
-    ~~~~~~~~~~~~~~~~~~~~~^
-        ddl.SchemaGenerator, self, checkfirst=checkfirst, tables=tables
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3251, in _run_ddl_visitor
-    with self.begin() as conn:
-         ~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/contextlib.py", line 141, in __enter__
-    return next(self.gen)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3241, in begin
-    with self.connect() as conn:
-         ~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3277, in connect
-    return self._connection_cls(self)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 145, in __init__
-    Connection._handle_dbapi_exception_noconnection(
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
-        err, dialect, engine
-        ^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 2440, in _handle_dbapi_exception_noconnection
-    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 143, in __init__
-    self._dbapi_connection = engine.raw_connection()
-                             ~~~~~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/base.py", line 3301, in raw_connection
-    return self.pool.connect()
-           ~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 447, in connect
-    return _ConnectionFairy._checkout(self)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 1264, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 711, in checkout
-    rec = pool._do_get()
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 177, in _do_get
-    with util.safe_reraise():
-         ~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/impl.py", line 175, in _do_get
-    return self._create_connection()
-           ~~~~~~~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 388, in _create_connection
-    return _ConnectionRecord(self)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 673, in __init__
-    self.__connect()
-    ~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 899, in __connect
-    with util.safe_reraise():
-         ~~~~~~~~~~~~~~~~~^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/util/langhelpers.py", line 224, in __exit__
-    raise exc_value.with_traceback(exc_tb)
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/pool/base.py", line 895, in __connect
-    self.dbapi_connection = connection = pool._invoke_creator(self)
-                                         ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/create.py", line 661, in connect
-    return dialect.connect(*cargs, **cparams)
-           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-  File "/home/aa/miniconda3/lib/python3.13/site-packages/sqlalchemy/engine/default.py", line 629, in connect
-    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
-           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
-sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
-(Background on this error at: https://sqlalche.me/e/20/e3q8)
+![Generated Image](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/6xinSlAAAQAAAAEAABidanVtYgAA
+2025-12-23 10:04:59,565 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Found Markdown data URL in Gemini response, length: 903539
+2025-12-23 10:04:59,574 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Successfully extracted base64 image from Gemini Markdown: (1024, 1024), RGB
+2025-12-23 10:04:59,774 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:59] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:04:59,791 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:59] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:04:59,802 [INFO] services.task_manager - ✅ Task 575d8188-7ad0-45b3-a0d0-daac38b9fbb0 COMPLETED - Page 42acdff2-98f4-45d8-ab34-5c745a9d4c60 image generated
+2025-12-23 10:04:59,818 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:59] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:04:59,824 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:04:59] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:05:01,860 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:01] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/575d8188-7ad0-45b3-a0d0-daac38b9fbb0 HTTP/1.1" 200 -
+2025-12-23 10:05:01,891 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:01] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:05:01,930 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:01] "GET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60_v1.png?v=1766426699794 HTTP/1.1" 200 -
+2025-12-23 10:05:01,942 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:01] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:05:01,959 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:01] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:05:08,573 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:08] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841_v1.png?v=1766426496013 HTTP/1.1[0m" 304 -
+2025-12-23 10:05:08,604 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:08] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:05:13,104 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:13] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60/image-versions HTTP/1.1" 200 -
+2025-12-23 10:05:23,857 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:23] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60_v1.png?v=1766426699794 HTTP/1.1[0m" 304 -
+2025-12-23 10:05:39,806 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:39] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:05:39,814 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:39] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:05:39,891 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:39] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:05:39,903 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:39] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:05:45,794 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:05:45,796 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:45] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:05:45,820 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:45] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:05:45,825 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:05:49,098 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:49] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:05:54,381 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:54] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:05:54,667 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:54] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:05:54,829 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:54] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:05:54,856 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:05:54] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:06:01,932 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:06:01] "GET /api/settings HTTP/1.1" 200 -
+2025-12-23 10:06:01,974 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:06:01] "GET /api/settings HTTP/1.1" 200 -
+2025-12-23 10:07:03,246 [INFO] controllers.settings_controller - Updated AI_PROVIDER_FORMAT to: openai
+2025-12-23 10:07:03,248 [INFO] controllers.settings_controller - Updated API_BASE to: http://localhost:8045/v1
+2025-12-23 10:07:03,248 [INFO] controllers.settings_controller - Updated API key from settings
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated image settings: 2K, 16:9
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated worker settings: desc=5, img=1
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated TEXT_MODEL to: gemini-3-pro-high
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated IMAGE_MODEL to: gemini-3-pro-image
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated MINERU_API_BASE to: https://mineru.net
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated MINERU_TOKEN from settings
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Updated IMAGE_CAPTION_MODEL to: gemini-3-flash
+2025-12-23 10:07:03,252 [INFO] controllers.settings_controller - Settings updated successfully
+2025-12-23 10:07:03,254 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:07:03] "PUT /api/settings HTTP/1.1" 200 -
+2025-12-23 10:09:22,522 [INFO] controllers.settings_controller - Updated AI_PROVIDER_FORMAT to: openai
+2025-12-23 10:09:22,534 [INFO] controllers.settings_controller - Updated API_BASE to: http://localhost:8045/v1
+2025-12-23 10:09:22,535 [INFO] controllers.settings_controller - Updated API key from settings
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated image settings: 2K, 16:9
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated worker settings: desc=5, img=1
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated TEXT_MODEL to: gemini-3-pro-high
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated IMAGE_MODEL to: gemini-3-pro-image-16x9
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated MINERU_API_BASE to: https://mineru.net
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated MINERU_TOKEN from settings
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Updated IMAGE_CAPTION_MODEL to: gemini-3-flash
+2025-12-23 10:09:22,539 [INFO] controllers.settings_controller - Settings updated successfully
+2025-12-23 10:09:22,564 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:22] "PUT /api/settings HTTP/1.1" 200 -
+2025-12-23 10:09:34,256 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:34] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:34,321 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:34] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:34,354 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:34] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:34,384 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:34] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:37,235 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:37] "GET /api/projects?limit=50&offset=0 HTTP/1.1" 200 -
+2025-12-23 10:09:37,261 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:37] "GET /api/projects?limit=50&offset=0 HTTP/1.1" 200 -
+2025-12-23 10:09:37,280 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:37] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841_v1.png?v=1766426496013 HTTP/1.1[0m" 304 -
+2025-12-23 10:09:38,492 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:38] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:38,544 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:38] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/42acdff2-98f4-45d8-ab34-5c745a9d4c60_v1.png?v=1766426699794 HTTP/1.1[0m" 304 -
+2025-12-23 10:09:38,563 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:38] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:38,570 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:38] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:38,630 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:38] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:38,648 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:38] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/e3090d2b-91ea-4168-97d6-3a99c64ab841/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:40,192 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:40] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:41,366 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/output-language HTTP/1.1" 200 -
+2025-12-23 10:09:41,394 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_KEY from app.config: sk-2215043e6a394c7096f89f74ffd4dc0b
+2025-12-23 10:09:41,394 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_BASE from app.config: http://localhost:8045/v1
+2025-12-23 10:09:41,394 [INFO] services.ai_providers - Using OpenAI format for text generation, model: gemini-3-pro-high
+2025-12-23 10:09:41,546 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_KEY from app.config: sk-2215043e6a394c7096f89f74ffd4dc0b
+2025-12-23 10:09:41,547 [INFO] services.ai_providers - [CONFIG] Using OPENAI_API_BASE from app.config: http://localhost:8045/v1
+2025-12-23 10:09:41,547 [INFO] services.ai_providers - Using OpenAI format for image generation, model: gemini-3-pro-image-16x9
+2025-12-23 10:09:41,547 [WARNING] services.ai_providers - OpenAI format only supports 1K resolution, 4K is not available
+2025-12-23 10:09:41,580 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "[35m[1mPOST /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/generate/image HTTP/1.1[0m" 202 -
+2025-12-23 10:09:41,595 [INFO] services.task_manager - 🎨 Generating image for page 464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd...
+2025-12-23 10:09:41,622 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:41,702 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:41,717 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:41,728 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:41,747 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:41,765 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:41,770 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:41] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:41,850 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Calling OpenAI API - model: gemini-3-pro-image-16x9, api_base: http://localhost:8045/v1/
+2025-12-23 10:09:41,851 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Request prompt length: 811 chars, ref_images: 1
+2025-12-23 10:09:43,763 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:43] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:43,771 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:43] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:43,788 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:43] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:43,789 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:43] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:45,787 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:45,797 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:45,816 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:45] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:45,816 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:45] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:48,605 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:48] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:48,625 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:48] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:48,656 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:48] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:48,658 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:48] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:51,741 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:51,909 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:51,943 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:51] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:51,959 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:51] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:54,603 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:54] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:54,615 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:54] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:54,631 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:54] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:54,634 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:54] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:09:57,634 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:57] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:09:57,677 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:57] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:09:57,731 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:57] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:09:57,739 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:09:57] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:00,632 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:00] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:00,715 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:00] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:00,772 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:00] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:00,778 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:00] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:03,625 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:03] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:03,640 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:03] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:03,664 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:03] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:03,665 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:03] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:06,712 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:06] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:06,772 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:06] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:07,234 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:07] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:07,258 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:07] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:09,697 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:09] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:09,731 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:09] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:09,765 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:09] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:09,774 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:09] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:12,640 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:12] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:12,664 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:12] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:12,700 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:12] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:12,703 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:12] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:15,625 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:15] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:15,648 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:15] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:15,707 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:15] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:15,713 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:15] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:18,596 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:18,607 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:18,624 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:18] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:18,625 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:18] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:10:18,683 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] OpenAI API call completed, response type: ChatCompletion
+2025-12-23 10:10:18,694 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] ===== RAW RESPONSE START =====
+2025-12-23 10:10:18,694 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Response dump keys: ['id', 'choices', 'created', 'model', 'object', 'service_tier', 'system_fingerprint', 'usage', 'response', 'traceId']
+2025-12-23 10:10:18,699 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Raw response (truncated): {'id': None, 'choices': None, 'created': None, 'model': None, 'object': None, 'service_tier': None, 'system_fingerprint': None, 'usage': None, 'response': {'candidates': [{'content': {'parts': [{'text': '\n\n![Generated Image](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/6xinSlAAAQAAAAEAABidanVtYgAAAB5qdW1kYzJwYQARABCAAACqADibcQNjMnBhAAAAGHdqdW1iAAAAR2p1bWRjMm1hABEAEIAAAKoAOJtxA3VybjpjMnBhOmExYmE5MWIyLTU2NjAtZjNjNy1mZDYyLTQwNWQxNWUxZmM4ZQAAABOEanVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABNUY2JvctKEWQauogEmGCGCWQPCMIIDvjCCA0SgAwIBAgITf8DFXrYCzoMPnf3QSrAMRZ64JjAKBggqhkjOPQQDAzBRMQswCQYDVQQGEwJVUzETMBEGA1UECgwKR29vZ2xlIExMQzEtMCsGA1UEAwwkR29vZ2xlIEMyUEEgTWVkaWEgU2VydmljZXMgMVAgSUNBIEczMB4XDTI1MTAzMDIyMzQ0N1oXDTI2MTAyNTIyMzQ0NlowazELMAkGA1UEBhMCVVMxEzARBgNVBAoTCkdvb2dsZSBMTEMxHDAaBgNVBAsTE0dvb2dsZSBTeXN0ZW0gNjAwMzIxKTAnBgNVBAMTIEdvb2dsZSBNZWRpYSBQcm9jZXNzaW5nIFNlcnZpY2VzMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEawavchc+90s/hPWHxK3FFJ3MlrNDMsBT9MKpPwTIQKlgKDEGTNCDKZ7pSr9psMwxnQyVriyKysDz6Pfmk73qFaOCAd8wggHbMA4GA1UdDwEB/wQEAwIGwDAfBgNVHSUEGDAWBggrBgEFBQcDBAYKKwYBBAGD6F4CATAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBQd6OZCLAQToStyGD7pXnGFgwJTdTAfBgNVHSMEGDAWgBTae+G9tCyKheAQ1muax0rx+t/2NzBsBggrBgEFBQcBAQRgMF4wJgYIKwYBBQUHMAGGGmh0dHA6Ly9jMnBhLW9jc3AucGtpLmdvb2cvMDQGCCsGAQUFBzAChihodHRwOi8vcGtpLmdvb2cvYzJwYS9tZWRpYS0xcC1pY2EtZzMuY3J0MBcGA1UdIAQQMA4wDAYKKwYBBAGD6F4BATCBggYDVR0fBHsweTB3oHWgc4ZxaHR0cDovL3ByaXZhdGVjYS1jb250ZW50LTY4OGFhNjczLTAwMDAtMmE4Ni1hODdhLTA4OGJjODczNTcwYS5zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2I0ZmI2MDQ4MjVlY2M1YzNjZTZiL2NybC5jcmwwGQYJKwYBBAGD6F4DBAwGCisGAQQBg+heAwowMwYJKwYBBAGD6F4EBCYMJDAxOTljY2Q1LWRhZWQtNzlhNy04YjhhLWIwYmVkYzBhZjZmYTAKBggqhkjOPQQDAwNoADBlAjBmFtL3mPAMowbUEhwSn3lJjBLyCyhUYGl2NZQQHJOcHLpWNpHkl98WCG9IyI7KbE8CMQDxWA7ZdmKXNzz4Tf6p7wvW5zVzMnhwiezCm/86GxT8otwlWpSrb8J5T3FBV8wOLqtZAuAwggLcMIICY6ADAgECAhRB+qUhR3YhWNp/myz/jf0WCR7uPjAKBggqhkjOPQQDAzBDMQswCQYDVQQGEwJVUzETMBEGA1UECgwKR29vZ2xlIExMQzEfMB0GA1UEAwwWR29vZ2xlIEMyUEEgUm9vdCBDQSBHMzAeFw0yNTA1MDgyMj
+2025-12-23 10:10:18,699 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Choices count: 0
+2025-12-23 10:10:18,699 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] ===== RAW RESPONSE END =====
+2025-12-23 10:10:18,699 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Gemini response text: 
+
+![Generated Image](data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/6xinSlAAAQAAAAEAABidanVtYgAA
+2025-12-23 10:10:18,704 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Found Markdown data URL in Gemini response, length: 997795
+2025-12-23 10:10:18,713 [INFO] services.ai_providers.image.openai_provider - [IMAGE_GEN] Successfully extracted base64 image from Gemini Markdown: (1376, 768), RGB
+2025-12-23 10:10:19,004 [INFO] services.task_manager - ✅ Task af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f COMPLETED - Page 464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd image generated
+2025-12-23 10:10:21,674 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:21] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/tasks/af574d46-95d8-4c65-8a4e-1b5a9ae9ec0f HTTP/1.1" 200 -
+2025-12-23 10:10:21,985 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:21] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:10:22,028 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:22] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:10:22,038 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:22] "GET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd_v1.png?v=1766427018988 HTTP/1.1" 200 -
+2025-12-23 10:10:22,051 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:10:22] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd/image-versions HTTP/1.1" 200 -
+2025-12-23 10:11:07,296 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:11:07] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/template/template.png?v=1766424012306 HTTP/1.1[0m" 304 -
+2025-12-23 10:11:07,298 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:11:07] "[36mGET /files/1452ce75-0d00-4e70-bc8b-e81b498ed853/pages/464f4fc3-5c5d-4a40-80cb-d7b568f4cfbd_v1.png?v=1766427018988 HTTP/1.1[0m" 304 -
+2025-12-23 10:11:42,712 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:11:42] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:11:42,714 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:11:42] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:11:42,823 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:11:42] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:11:42,839 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:11:42] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:12:07,852 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:07] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:12:07,853 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:07] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:12:07,867 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:07] "GET /api/reference-files/project/1452ce75-0d00-4e70-bc8b-e81b498ed853 HTTP/1.1" 200 -
+2025-12-23 10:12:07,871 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:07] "GET /api/projects/1452ce75-0d00-4e70-bc8b-e81b498ed853/materials HTTP/1.1" 200 -
+2025-12-23 10:12:09,084 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:09] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:12:09,230 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:09] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:12:09,278 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:09] "GET /api/user-templates HTTP/1.1" 200 -
+2025-12-23 10:12:09,312 [INFO] werkzeug - 127.0.0.1 - - [23/Dec/2025 10:12:09] "GET /api/user-templates HTTP/1.1" 200 -

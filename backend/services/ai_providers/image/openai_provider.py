@@ -95,6 +95,9 @@ class OpenAIImageProvider(ImageProvider):
             logger.debug(f"Config - aspect_ratio: {aspect_ratio} (resolution ignored, OpenAI format only supports 1K)")
             
             # Note: resolution is not supported in OpenAI format, only aspect_ratio via system message
+            logger.info(f"[IMAGE_GEN] Calling OpenAI API - model: {self.model}, api_base: {self.client.base_url}")
+            logger.info(f"[IMAGE_GEN] Request prompt length: {len(prompt)} chars, ref_images: {len(ref_images) if ref_images else 0}")
+
             response = self.client.chat.completions.create(
                 model=self.model,
                 messages=[
@@ -103,14 +106,71 @@ class OpenAIImageProvider(ImageProvider):
                 ],
                 modalities=["text", "image"]
             )
-            
-            logger.debug("OpenAI API call completed")
-            
+
+            logger.info(f"[IMAGE_GEN] OpenAI API call completed, response type: {type(response).__name__}")
+
             # Extract image from response - handle different response formats
+
+            # 首先处理 Gemini REST API 格式（某些代理返回的格式）
+            # response.choices 可能是 None，需要从原始响应中提取
+            raw_response = response.model_dump() if hasattr(response, 'model_dump') else {}
+            if raw_response is None:
+                raw_response = {}
+
+            # ===== DEBUG: 打印完整原始响应 =====
+            logger.info(f"[IMAGE_GEN] ===== RAW RESPONSE START =====")
+            logger.info(f"[IMAGE_GEN] Response dump keys: {list(raw_response.keys()) if isinstance(raw_response, dict) else 'N/A'}")
+            logger.info(f"[IMAGE_GEN] Raw response (truncated): {str(raw_response)[:2000]}")
+            if 'choices' in raw_response:
+                choices = raw_response.get('choices') or []
+                logger.info(f"[IMAGE_GEN] Choices count: {len(choices)}")
+                if choices:
+                    first_choice = choices[0]
+                    logger.info(f"[IMAGE_GEN] First choice keys: {list(first_choice.keys()) if isinstance(first_choice, dict) else 'N/A'}")
+                    if 'message' in first_choice:
+                        logger.info(f"[IMAGE_GEN] Message keys: {list(first_choice['message'].keys()) if isinstance(first_choice['message'], dict) else 'N/A'}")
+            logger.info(f"[IMAGE_GEN] ===== RAW RESPONSE END =====")
+            # ===== DEBUG END =====
+
+            # 处理 Gemini REST API 格式: {"response": {"candidates": [{"content": {"parts": [...]}}]}}
+            if "response" in raw_response and "candidates" in raw_response["response"]:
+                candidates = raw_response["response"]["candidates"]
+                if candidates and "content" in candidates[0] and "parts" in candidates[0]["content"]:
+                    for part in candidates[0]["content"]["parts"]:
+                        if "inline_data" in part:
+                            image_data = base64.b64decode(part["inline_data"]["data"])
+                            image = Image.open(BytesIO(image_data))
+                            logger.info(f"[IMAGE_GEN] Successfully extracted image from Gemini inline_data: {image.size}, {image.mode}")
+                            return image
+                        if "text" in part:
+                            text = part["text"]
+                            logger.info(f"[IMAGE_GEN] Gemini response text: {text[:100] if len(text) > 100 else text}")
+
+                            # Check if text contains Markdown image with base64 data URL
+                            markdown_data_pattern = r'!\[.*?\]\((data:image/[^;]+;base64,[A-Za-z0-9+/=]+)\)'
+                            markdown_data_matches = re.findall(markdown_data_pattern, text)
+                            if markdown_data_matches:
+                                data_url = markdown_data_matches[0]
+                                logger.info(f"[IMAGE_GEN] Found Markdown data URL in Gemini response, length: {len(data_url)}")
+                                try:
+                                    base64_data = data_url.split(',', 1)[1]
+                                    image_data = base64.b64decode(base64_data)
+                                    image = Image.open(BytesIO(image_data))
+                                    logger.info(f"[IMAGE_GEN] Successfully extracted base64 image from Gemini Markdown: {image.size}, {image.mode}")
+                                    return image
+                                except Exception as decode_error:
+                                    logger.warning(f"[IMAGE_GEN] Failed to decode base64 image from Gemini Markdown: {decode_error}")
+
+            # 处理标准 OpenAI 格式
+            if not response.choices:
+                logger.error(f"[IMAGE_GEN] No choices in response! Raw response: {raw_response}")
+                raise ValueError(f"OpenAI API returned no choices. Raw response: {raw_response}")
+
             message = response.choices[0].message
-            
+
             # Debug: log available attributes
-            logger.debug(f"Response message attributes: {dir(message)}")
+            logger.info(f"[IMAGE_GEN] Message attributes: {dir(message)}")
+            logger.info(f"[IMAGE_GEN] Message.content type: {type(message.content)}, value: {str(message.content)[:500] if message.content else 'None'}")
             
             # Try multi_mod_content first (custom format from some proxies)
             if hasattr(message, 'multi_mod_content') and message.multi_mod_content:
@@ -163,13 +223,29 @@ class OpenAIImageProvider(ImageProvider):
                 elif isinstance(message.content, str):
                     content_str = message.content
                     logger.debug(f"Response content (string): {content_str[:200] if len(content_str) > 200 else content_str}")
-                    
-                    # Try to extract Markdown image URL: ![...](url)
-                    markdown_pattern = r'!\[.*?\]\((https?://[^\s\)]+)\)'
-                    markdown_matches = re.findall(markdown_pattern, content_str)
-                    if markdown_matches:
-                        image_url = markdown_matches[0]  # Use the first image URL found
-                        logger.debug(f"Found Markdown image URL: {image_url}")
+
+                    # Try to extract Markdown image URL with data:image prefix (e.g., ![...](data:image/jpeg;base64,...))
+                    markdown_data_pattern = r'!\[.*?\]\((data:image/[^;]+;base64,[A-Za-z0-9+/=]+)\)'
+                    markdown_data_matches = re.findall(markdown_data_pattern, content_str)
+                    if markdown_data_matches:
+                        data_url = markdown_data_matches[0]
+                        logger.info(f"[IMAGE_GEN] Found Markdown data URL, length: {len(data_url)}")
+                        try:
+                            # Extract base64 data from data URL
+                            base64_data = data_url.split(',', 1)[1]
+                            image_data = base64.b64decode(base64_data)
+                            image = Image.open(BytesIO(image_data))
+                            logger.info(f"[IMAGE_GEN] Successfully extracted base64 image from Markdown: {image.size}, {image.mode}")
+                            return image
+                        except Exception as decode_error:
+                            logger.warning(f"Failed to decode base64 image from Markdown: {decode_error}")
+
+                    # Try to extract Markdown image URL with http/https prefix: ![...](url)
+                    markdown_http_pattern = r'!\[.*?\]\((https?://[^\s\)]+)\)'
+                    markdown_http_matches = re.findall(markdown_http_pattern, content_str)
+                    if markdown_http_matches:
+                        image_url = markdown_http_matches[0]  # Use the first image URL found
+                        logger.debug(f"Found Markdown http image URL: {image_url}")
                         try:
                             response = requests.get(image_url, timeout=30, stream=True)
                             response.raise_for_status()
@@ -211,13 +287,16 @@ class OpenAIImageProvider(ImageProvider):
                             logger.warning(f"Failed to decode base64 image from string: {decode_error}")
             
             # Log raw response for debugging
-            logger.warning(f"Unable to extract image. Raw message type: {type(message)}")
-            logger.warning(f"Message content type: {type(getattr(message, 'content', None))}")
-            logger.warning(f"Message content: {getattr(message, 'content', 'N/A')}")
-            
+            logger.error(f"[IMAGE_GEN] ===== IMAGE EXTRACTION FAILED =====")
+            logger.error(f"[IMAGE_GEN] Unable to extract image. Raw message type: {type(message)}")
+            logger.error(f"[IMAGE_GEN] Message content type: {type(getattr(message, 'content', None))}")
+            logger.error(f"[IMAGE_GEN] Message content: {getattr(message, 'content', 'N/A')}")
+            logger.error(f"[IMAGE_GEN] Full raw_response: {raw_response}")
+            logger.error(f"[IMAGE_GEN] ===== END DEBUG INFO =====")
+
             raise ValueError("No valid multimodal response received from OpenAI API")
-            
+
         except Exception as e:
             error_detail = f"Error generating image with OpenAI (model={self.model}): {type(e).__name__}: {str(e)}"
-            logger.error(error_detail, exc_info=True)
+            logger.error(f"[IMAGE_GEN] {error_detail}", exc_info=True)
             raise Exception(error_detail) from e
